@@ -1,23 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStyletron } from 'baseui';
-import { Block } from 'baseui/block';
+import { Block, Responsive, Scale } from 'baseui/block';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 type Props = {
+    onClick: () => unknown,
+    title: string,
     icon: string,
     filledIcon: string,
-    marginLeft: string,
-    marginRight: string,
+    marginLeft?: Responsive<Scale>,
+    marginRight?: Responsive<Scale>,
 }
 
 export function ActionIcon({
-  icon, filledIcon, marginLeft, marginRight,
+  title, onClick, icon, filledIcon, marginLeft, marginRight,
 }: Props) {
   const [css, theme] = useStyletron();
+  const router = useRouter();
+  const isActive = router.pathname.includes(title);
 
   return (
     <Block
+      onClick={onClick}
       marginLeft={marginLeft}
       marginRight={marginRight}
       className={css({
@@ -26,18 +32,18 @@ export function ActionIcon({
         height: '40px',
         width: '40px',
         display: 'flex',
+        zIndex: '2',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '50%',
+        backgroundColor: isActive ? 'rgba(255,161,0,0.18)' : 'transparent',
         transitionProperty: 'all',
         transitionDuration: theme.animation.timing900,
         ':hover': {
           backgroundColor: 'rgba(255,161,0,0.18)',
-          // backgroundColor: 'rgba(109,109,109,0.1)',
         },
       })}
     >
-
       <Block className={css({
         opacity: '1',
         transitionProperty: 'all',
@@ -63,9 +69,8 @@ export function ActionIcon({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: '99',
         objectFit: 'contain',
-        opacity: '0',
+        opacity: isActive ? '1' : '0',
         transitionProperty: 'all',
         transitionDuration: theme.animation.timing700,
         ':hover': {
@@ -81,20 +86,19 @@ export function ActionIcon({
           className={css({ padding: '10px' })}
         />
       </Block>
-
     </Block>
-
   );
 }
 
 ActionIcon.propTypes = {
+  title: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   filledIcon: PropTypes.string.isRequired,
-  marginLeft: PropTypes.string,
-  marginRight: PropTypes.string,
+  marginLeft: PropTypes.any,
+  marginRight: PropTypes.any,
 };
 
 ActionIcon.defaultProps = {
-  marginLeft: '20px',
+  marginLeft: ['4px', '4px', '16px', '20px'],
   marginRight: '0px',
 };

@@ -1,11 +1,11 @@
 import { Container } from '@components/atoms/container';
 import Layout from '../layout';
 
-export default function Home() {
+export default function Shop() {
   return (
     <Layout>
       <Container>
-        HOME
+        SHOP
       </Container>
     </Layout>
   );

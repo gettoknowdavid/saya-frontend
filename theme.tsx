@@ -5,9 +5,10 @@ const PRIMARY = '#FFFFFF';
 const THEME = createLightTheme(
   { ...lightThemePrimitives },
   {
-    primaryFontFamily: 'CMG Sans',
+    primaryFontFamily: 'Poppins',
     colors: {
       primary: PRIMARY,
+      accent: '#FFA100',
       accent100: '#8A8A8A',
       accent200: '#737373',
       accent300: '#5C5C5C',
@@ -30,8 +31,8 @@ const THEME = createLightTheme(
         fontWeight: '800',
         color: '#000000',
         [LightTheme.mediaQuery.small]: { fontSize: '24px', lineHeight: '28px' },
-        [LightTheme.mediaQuery.medium]: { fontSize: '25px', lineHeight: '29px' },
-        [LightTheme.mediaQuery.large]: { fontSize: '26px', lineHeight: '30px' },
+        [LightTheme.mediaQuery.medium]: { fontSize: '26px', lineHeight: '29px' },
+        [LightTheme.mediaQuery.large]: { fontSize: '28px', lineHeight: '30px' },
       },
     },
   },

@@ -34,6 +34,10 @@
     "baseui/deprecated-theme-api": "warn",
     "baseui/deprecated-component-api": "warn",
     "baseui/no-deep-imports": "warn",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "react/forbid-prop-types": "off",
+    "react/no-unstable-nested-components": "off",
+    "no-unused-vars": "off"
   }
 }

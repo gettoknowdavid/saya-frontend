@@ -1,11 +1,12 @@
 import React from 'react';
 import { Block, Scale } from 'baseui/block';
 import { Responsive } from 'baseui/theme';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 type Props = {
     children: React.ReactNode,
     className: string,
+    height?: Responsive<Scale>,
     paddingTop?: Responsive<Scale>,
     marginTop?: Responsive<Scale>,
     paddingRight?: Responsive<Scale>,
@@ -19,6 +20,7 @@ type Props = {
 export function Container({
   children,
   className,
+  height,
   paddingTop,
   marginTop,
   paddingRight,
@@ -30,6 +32,7 @@ export function Container({
 }: Props) {
   return (
     <Block
+      height={height}
       position="relative"
       paddingTop={paddingTop}
       marginTop={marginTop}
@@ -49,18 +52,20 @@ export function Container({
 Container.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  paddingTop: PropTypes.arrayOf(string) || PropTypes.string,
-  marginTop: PropTypes.arrayOf(string) || PropTypes.string,
-  paddingRight: PropTypes.arrayOf(string) || PropTypes.string,
-  marginRight: PropTypes.arrayOf(string) || PropTypes.string,
-  paddingBottom: PropTypes.arrayOf(string) || PropTypes.string,
-  marginBottom: PropTypes.arrayOf(string) || PropTypes.string,
-  paddingLeft: PropTypes.arrayOf(string) || PropTypes.string,
-  marginLeft: PropTypes.arrayOf(string) || PropTypes.string,
+  height: PropTypes.any,
+  paddingTop: PropTypes.any,
+  marginTop: PropTypes.any,
+  paddingRight: PropTypes.any,
+  marginRight: PropTypes.any,
+  paddingBottom: PropTypes.any,
+  marginBottom: PropTypes.any,
+  paddingLeft: PropTypes.any,
+  marginLeft: PropTypes.any,
 };
 
 Container.defaultProps = {
   className: '',
+  height: '',
   paddingTop: '10px',
   marginTop: '0px',
   paddingRight: ['10px', '10px', '20px', '40px'],
