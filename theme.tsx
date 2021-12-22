@@ -1,4 +1,4 @@
-import { createLightTheme, LightTheme, lightThemePrimitives } from 'baseui';
+import { lightThemePrimitives, LightTheme, createLightTheme } from 'baseui';
 
 const PRIMARY = '#FFFFFF';
 
@@ -33,6 +33,18 @@ const THEME = createLightTheme(
         [LightTheme.mediaQuery.small]: { fontSize: '24px', lineHeight: '28px' },
         [LightTheme.mediaQuery.medium]: { fontSize: '26px', lineHeight: '29px' },
         [LightTheme.mediaQuery.large]: { fontSize: '28px', lineHeight: '30px' },
+      },
+
+      heroTextBold: {
+        lineHeight: '26px',
+        color: '#2E2E2E',
+        maxWidth: '400px',
+      },
+      heroTagLine: {
+        lineHeight: '26px',
+        color: '#2E2E2E',
+        maxWidth: '400px',
+        marginBottom: '6px',
       },
     },
   },

@@ -1,4 +1,3 @@
-// Define a type for the slice state
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // eslint-disable-next-line import/no-cycle
 import { RootState } from '../store';
@@ -23,13 +22,11 @@ export const globalSlice = createSlice({
     toggleDrawer: (state, action: PayloadAction<boolean>) => ({
       ...state, drawerIsOpen: action.payload,
     }),
-    closeDrawer: (state) => ({
-      ...state, drawerIsOpen: initialState.drawerIsOpen,
-    }),
+
   },
 });
 
-export const { getSettings, toggleDrawer, closeDrawer } = globalSlice.actions;
+export const { getSettings, toggleDrawer } = globalSlice.actions;
 
 export const selectGlobal = (state: RootState) => state.globalRepo;
 

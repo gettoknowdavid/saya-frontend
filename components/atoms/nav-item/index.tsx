@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useStyletron } from 'baseui';
-import { Indicator } from '@components/atoms/indicator';
+import { Indicator } from '@atoms/indicator';
 import { useRouter } from 'next/router';
+import { Axis } from '@enums/nav-list-axis';
 import THEME from '../../../theme';
-import { Axis } from '../../../enums/nav-list-axis';
 
 type Props = {
     title: string,

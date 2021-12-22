@@ -5,7 +5,7 @@ export const StyledLayout = styled('div', ({ $theme }) => ({
   maxWidth: '1440px',
   margin: '0px auto',
   position: 'relative',
-  backgroundColor: $theme.colors.primary,
+  backgroundColor: $theme.colors.mono300,
   color: $theme.colors.accent500,
   fontFamily: Theme.primaryFontFamily,
 }));
@@ -15,5 +15,5 @@ export const StyledLayoutBody = styled('div', ({ $theme }) => ({
   minHeight: '100vh',
   margin: '0px auto',
   color: $theme.colors.accent500,
-  backgroundColor: $theme.colors.primary,
+  backgroundColor: $theme.colors.mono300,
 }));

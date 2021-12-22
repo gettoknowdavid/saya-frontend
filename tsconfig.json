@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
@@ -16,12 +22,44 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"],
-      "@lib/*": ["lib/*"],
-      "@services/*": ["services/*"],
+      "@atoms/*": [
+        "components/atoms/*"
+      ],
+      "@molecules/*": [
+        "components/molecules/*"
+      ],
+      "@organisms/*": [
+        "components/organisms/*"
+      ],
+      "@enums/*": [
+        "enums/*"
+      ],
+      "@graphql/*": [
+        "graphql/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@redux/*": [
+        "redux/*"
+      ],
+      "@types/*": [
+        "redux/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

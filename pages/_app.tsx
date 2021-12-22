@@ -7,9 +7,12 @@ import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@lib/apollo';
 import { BaseProvider } from 'baseui';
 import { Provider } from 'react-redux';
+import { fetchAPI } from '@lib/api';
 import styletron from '../styletron';
 import THEME from '../theme';
 import { sayaStore } from '../redux/store';
+import { GlobalQuery } from '../graphql/queries/global.query';
+import { getSettings } from '../redux/slices/global.slice';
 
 export default function SayaApp({ Component, pageProps }: AppProps) {
   const { initialApolloState, initialReduxState } = pageProps;
@@ -31,9 +34,12 @@ export default function SayaApp({ Component, pageProps }: AppProps) {
 
 SayaApp.getInitialProps = async (context) => {
   const appProps = await App.getInitialProps(context);
-
   const store = sayaStore({});
-  // const { dispatch } = store;
+  const { dispatch } = store;
+
+  const { data: { global } } = await fetchAPI({ query: GlobalQuery });
+  // @ts-ignore
+  dispatch(getSettings(global), { payload: global });
 
   return { ...appProps, pageProps: { initialReduxState: store.getState() } };
 };

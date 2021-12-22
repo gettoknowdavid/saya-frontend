@@ -66,12 +66,12 @@ Container.propTypes = {
 Container.defaultProps = {
   className: '',
   height: '',
-  paddingTop: '10px',
+  paddingTop: '0px',
   marginTop: '0px',
-  paddingRight: ['10px', '10px', '20px', '40px'],
+  paddingRight: ['10px', '10px', '20px', '50px'],
   marginRight: '0px',
-  paddingBottom: '10px',
+  paddingBottom: '0px',
   marginBottom: '0px',
-  paddingLeft: ['10px', '10px', '20px', '40px'],
+  paddingLeft: ['10px', '10px', '20px', '50px'],
   marginLeft: '0px',
 };

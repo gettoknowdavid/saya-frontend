@@ -1,12 +1,10 @@
 import React from 'react';
-import { NavItem } from '@components/atoms/nav-item';
+import { NavItem } from '@atoms/nav-item';
 import { useStyletron } from 'baseui';
 import PropTypes from 'prop-types';
-import { Axis } from '../../../enums/nav-list-axis';
+import { Axis } from '@enums/nav-list-axis';
 
-type Props = {
-    axis?: Axis
-}
+type Props = { axis?: Axis }
 
 export function NavList({ axis }: Props) {
   const [css] = useStyletron();
@@ -32,6 +30,4 @@ NavList.propTypes = {
   axis: PropTypes.oneOf([...Object.values(Axis)]),
 };
 
-NavList.defaultProps = {
-  axis: Axis.HORIZONTAL,
-};
+NavList.defaultProps = { axis: Axis.HORIZONTAL };
