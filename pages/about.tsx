@@ -1,8 +1,8 @@
-import { Container } from '@components/atoms/container';
+import { Container } from '@atoms/container';
 import { GetStaticProps } from 'next';
 import { fetchAPI } from '@lib/api';
+import { AboutQuery } from '@graphql/queries/about.query';
 import Layout from '../layout';
-import { AboutQuery } from '../graphql/queries/about.query';
 import { SeoInterface } from '../types';
 
 type Props = {

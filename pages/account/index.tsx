@@ -1,9 +1,9 @@
-import { Container } from '@components/atoms/container';
+import { Container } from '@atoms/container';
 import { GetStaticProps } from 'next';
 import { fetchAPI } from '@lib/api';
+import { AccountQuery } from '@graphql/queries/account.query';
 import Layout from '../../layout';
 import { SeoInterface } from '../../types';
-import { AccountQuery } from '../../graphql/queries/account.query';
 
 type Props = {
     account: { seo: SeoInterface }
