@@ -18,8 +18,8 @@ export function Header() {
   return (
     <Block
       height={['60px', '60px', '70px', '80px']}
-      paddingRight={['10px', '10px', '20px', '50px']}
-      paddingLeft={['10px', '10px', '20px', '50px']}
+      paddingRight={['10px', '10px', '20px', '80px']}
+      paddingLeft={['10px', '10px', '20px', '80px']}
       className={css({
         position: 'absolute',
         left: '0',
@@ -55,7 +55,12 @@ export function Header() {
           margin: 0,
         })}
         >
-          <ActionIcon title="bag" onClick={() => push('/bag')} icon="bag.png" filledIcon="bag-filled.png" />
+          <ActionIcon
+            title="bag"
+            onClick={() => push('/bag')}
+            icon="bag.png"
+            filledIcon="bag-filled.png"
+          />
           <ActionIcon
             title="account"
             onClick={() => push('/account')}

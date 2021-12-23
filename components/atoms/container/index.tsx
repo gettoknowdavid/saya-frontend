@@ -68,10 +68,10 @@ Container.defaultProps = {
   height: '',
   paddingTop: '0px',
   marginTop: '0px',
-  paddingRight: ['10px', '10px', '20px', '50px'],
+  paddingRight: ['10px', '10px', '20px', '80px'],
   marginRight: '0px',
   paddingBottom: '0px',
   marginBottom: '0px',
-  paddingLeft: ['10px', '10px', '20px', '50px'],
+  paddingLeft: ['10px', '10px', '20px', '80px'],
   marginLeft: '0px',
 };

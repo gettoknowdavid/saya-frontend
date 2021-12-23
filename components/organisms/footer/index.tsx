@@ -6,124 +6,104 @@ import Link from 'next/link';
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
 import Image from 'next/image';
 import {
+  StyledFooter, StyledFooterList,
   StyledFooterListHeading,
-  StyledFooterListItem,
-  StyledFooterSocialLink,
+  StyledFooterListItem, StyledFooterMainText,
+  StyledFooterSocialLink, StyledFooterSocialList, StyledFooterSubText,
 } from '@organisms/footer/footer.styles';
 
-function Footer() {
+export function Footer() {
   const [css, theme] = useStyletron();
 
   return (
-    <footer className={css({
-      marginBottom: '0',
-      color: theme.colors.accent700,
-      [theme.mediaQuery.small]: {
-        paddingTop: '40px',
-        paddingBottom: '0',
-      },
-      [theme.mediaQuery.medium]: {
-        paddingTop: '50px',
-        paddingBottom: '0',
-      },
-      [theme.mediaQuery.large]: {
-        paddingTop: '100px',
-        paddingBottom: '0',
-      },
-    })}
-    >
+    <StyledFooter>
       <Container paddingTop="20px" paddingBottom="50px">
-        <FlexGrid flexGridColumnCount={[1, 1, 1, 5]}>
+        <FlexGrid flexGridColumnCount={[1, 1, 3, 5]} flexGridRowGap={['40px', '40px', '40px', '0px']}>
           <FlexGridItem maxWidth={['100%', '100%', '100%', '48%']}>
-            <Block>
-              <h1 className={css({
-                fontFamily: 'Bodoni MT',
-                fontSize: '62px',
-                lineHeight: '64px',
-                marginTop: '0',
-                marginBottom: '40px',
-              })}
-              >
+            <Block className={css({
+              display: 'block',
+              [theme.mediaQuery.small]: { textAlign: 'center', marginBottom: '50px' },
+              [theme.mediaQuery.medium]: { textAlign: 'center', marginBottom: '50px' },
+              [theme.mediaQuery.large]: { textAlign: 'left', marginBottom: '0px' },
+            })}
+            >
+              <StyledFooterMainText>
                 Need help
                 <br />
                 with anything?
-              </h1>
-              <p className={css({
-                color: theme.colors.accent200,
-                fontSize: theme.typography.ParagraphMedium.fontSize,
-                fontWeight: '300',
-              })}
-              >
+              </StyledFooterMainText>
+              <StyledFooterSubText>
                 {'Let\'s hear about it!  '}
                 <span className={css({
                   textDecoration: 'underline',
-                  ':hover': {
-                    textDecoration: 'none',
-                  },
+                  ':hover': { textDecoration: 'none' },
                 })}
                 >
                   <Link href="/contact" passHref>Contact Us</Link>
                 </span>
-              </p>
+              </StyledFooterSubText>
             </Block>
           </FlexGridItem>
           <FlexGridItem maxWidth={['100%', '100%', '100%', '13%']}>
-            <Block>
+            <StyledFooterList>
               <StyledFooterListHeading>Menu</StyledFooterListHeading>
               <ul>
                 <StyledFooterListItem>About Us</StyledFooterListItem>
                 <StyledFooterListItem>History</StyledFooterListItem>
               </ul>
-            </Block>
+            </StyledFooterList>
           </FlexGridItem>
           <FlexGridItem maxWidth={['100%', '100%', '100%', '13%']}>
-            <Block>
+            <StyledFooterList>
               <StyledFooterListHeading>Product</StyledFooterListHeading>
               <ul>
                 <StyledFooterListItem>Categories</StyledFooterListItem>
                 <StyledFooterListItem>Pricing</StyledFooterListItem>
                 <StyledFooterListItem>Testimonials</StyledFooterListItem>
               </ul>
-            </Block>
+            </StyledFooterList>
           </FlexGridItem>
           <FlexGridItem maxWidth={['100%', '100%', '100%', '13%']}>
-            <Block>
+            <StyledFooterList>
               <StyledFooterListHeading>Discover</StyledFooterListHeading>
               <ul>
                 <StyledFooterListItem>Customer</StyledFooterListItem>
                 <StyledFooterListItem>Privacy</StyledFooterListItem>
                 <StyledFooterListItem>{'FAQ\'s'}</StyledFooterListItem>
               </ul>
-            </Block>
+            </StyledFooterList>
           </FlexGridItem>
           <FlexGridItem maxWidth={['100%', '100%', '100%', '13%']}>
-            <Block>
+            <StyledFooterList>
               <StyledFooterListHeading>Follow us</StyledFooterListHeading>
-              <ul className={css({ display: 'flex' })}>
+              <StyledFooterSocialList>
                 <StyledFooterSocialLink>
                   <Link href="/" passHref>
-                    <Image src="/facebook.png" height="16px" width="16px" alt="Facebook" />
+                    <Block display="flex" alignItems="center" justifyContent="center">
+                      <Image src="/facebook.png" height="16px" width="16px" alt="Facebook" />
+                    </Block>
                   </Link>
                 </StyledFooterSocialLink>
                 <StyledFooterSocialLink>
                   <Link href="/" passHref>
-                    <Image src="/instagram.png" height="16px" width="16px" alt="Instagram" />
+                    <Block display="flex" alignItems="center" justifyContent="center">
+                      <Image src="/instagram.png" height="16px" width="16px" alt="Instagram" />
+                    </Block>
                   </Link>
                 </StyledFooterSocialLink>
                 <StyledFooterSocialLink>
                   <Link href="/" passHref>
-                    <Image src="/twitter.png" height="16px" width="16px" alt="Twitter" />
+                    <Block display="flex" alignItems="center" justifyContent="center">
+                      <Image src="/twitter.png" height="16px" width="16px" alt="Twitter" />
+                    </Block>
                   </Link>
                 </StyledFooterSocialLink>
-              </ul>
-            </Block>
+              </StyledFooterSocialList>
+            </StyledFooterList>
           </FlexGridItem>
         </FlexGrid>
       </Container>
-      <Block className={css({
-        backgroundColor: theme.colors.accent,
-      })}
-      >
+      <Block backgroundColor="accent">
         <Container
           paddingTop="20px"
           paddingBottom="20px"
@@ -140,8 +120,6 @@ function Footer() {
           </span>
         </Container>
       </Block>
-    </footer>
+    </StyledFooter>
   );
 }
-
-export default Footer;

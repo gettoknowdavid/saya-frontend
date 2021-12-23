@@ -3,7 +3,7 @@ import { Header } from '@organisms/header';
 import { Drawer } from 'baseui/drawer';
 import Seo from '@lib/seo';
 import PropTypes from 'prop-types';
-import Footer from '@organisms/footer';
+import { Footer } from '@organisms/footer';
 import { StyledLayout, StyledLayoutBody } from './layout.styles';
 import { SeoInterface } from '../types';
 

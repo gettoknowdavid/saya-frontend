@@ -3,6 +3,7 @@ import { Button as BaseButton, ButtonProps as BaseButtonProps } from 'baseui/but
 import { Theme, useStyletron } from 'baseui';
 import THEME from '../../../theme';
 
+// eslint-disable-next-line no-shadow
 export enum ButtonVariant {
     FILLED,
     TRANSPARENT
@@ -65,12 +66,10 @@ export function Button({
             paddingLeft,
             backgroundColor: variant === ButtonVariant.FILLED ? color : 'transparent',
             color: $theme.colors.accent600,
-            outlineColor: showBorder ? borderColor : color,
-            outlineWidth: `${borderWidth}px`,
-            outlineStyle: 'solid',
+            outline: `${borderWidth}px solid ${showBorder ? borderColor : color}`,
             ':hover': {
               backgroundColor: $theme.colors.accent50,
-              outlineColor: $theme.colors.accent50,
+              outline: `${borderWidth}px solid ${$theme.colors.accent50}`,
             },
           }),
         },
