@@ -10,7 +10,9 @@ export interface ProductInterface {
         price: number,
         author: string,
         rating: number,
-        category: CategoryInterface,
+        category: {
+            data: CategoryInterface
+        },
         featuredImage: {
             data: {
                 attributes: {

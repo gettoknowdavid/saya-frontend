@@ -16,6 +16,7 @@ export const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
+    closeDrawer: ((state) => ({ ...state, drawerIsOpen: initialState.drawerIsOpen })),
     getSettings: ((state, action: PayloadAction<object>) => ({
       ...state, settings: action.payload,
     })),
@@ -26,7 +27,7 @@ export const globalSlice = createSlice({
   },
 });
 
-export const { getSettings, toggleDrawer } = globalSlice.actions;
+export const { closeDrawer, getSettings, toggleDrawer } = globalSlice.actions;
 
 export const selectGlobal = (state: RootState) => state.globalRepo;
 

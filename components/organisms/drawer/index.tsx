@@ -1,23 +1,24 @@
 import React from 'react';
 import { ANCHOR, Drawer as BaseDrawer } from 'baseui/drawer';
-import { DrawerCloseButton } from '@components/atoms/drawer-close-button';
-import { NavList } from '@components/molecules/nav-list';
-import { Axis } from '../../../enums/nav-list-axis';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
-import { selectGlobal, toggleDrawer } from '../../../redux/slices/global.slice';
+import { Axis } from '@enums/nav-list-axis';
+import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
+import { selectGlobal, toggleDrawer } from '@redux/slices/global.slice';
+import { DrawerCloseButton } from '@atoms/drawer-close-button';
+import { NavList } from '@molecules/nav-list';
 
 export function Drawer() {
   const { drawerIsOpen } = useAppSelector(selectGlobal);
   const dispatch = useAppDispatch();
 
   const onClose = () => dispatch(toggleDrawer(false));
+
   return (
     <BaseDrawer
       isOpen={drawerIsOpen}
       onClose={onClose}
       anchor={ANCHOR.right}
       overrides={{
-        Root: { style: () => ({ zIndex: '4' }) },
+        Root: { style: () => ({ zIndex: '1000000' }) },
         Close: { component: () => (<DrawerCloseButton />) },
         DrawerBody: {
           style: () => ({

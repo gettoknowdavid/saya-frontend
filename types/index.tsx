@@ -1,5 +1,8 @@
+import { AddressInterface } from './address.interface';
 import { CategoryInterface } from './category.interface';
 import { ProductInterface } from './product.interface';
 import { SeoInterface } from './seo.interface';
 
-export type { CategoryInterface, ProductInterface, SeoInterface };
+export type {
+  AddressInterface, CategoryInterface, ProductInterface, SeoInterface,
+};

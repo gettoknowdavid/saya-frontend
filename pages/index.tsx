@@ -2,8 +2,8 @@ import { GetStaticProps } from 'next';
 import { fetchAPI } from '@lib/api';
 import { HomeQuery } from '@graphql/queries/home.query';
 import Layout from '../layout';
-import { ProductInterface, SeoInterface } from '../types';
 import { HomeContent } from '../content/home.content';
+import { SeoInterface, ProductInterface } from '../types';
 
 type Props = {
     home: {

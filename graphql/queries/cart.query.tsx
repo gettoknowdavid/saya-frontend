@@ -1,10 +1,10 @@
 import { DocumentNode, gql } from '@apollo/client';
 import { SeoFragment } from '@graphql/fragments/seo.fragment';
 
-export const BagQuery: DocumentNode = gql`
+export const CartQuery: DocumentNode = gql`
     ${SeoFragment}
     query BagQuery {
-        bag {
+        cart {
             data {
                 attributes {
                     seo {

@@ -4,6 +4,10 @@ import { useStyletron } from 'baseui';
 import { Block, Responsive, Scale } from 'baseui/block';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { HorizontalSpacer } from '@atoms/spacer';
+import { ParagraphSmall, ParagraphXSmall } from 'baseui/typography';
+import { useAppSelector } from '@hooks/redux-hooks';
+import { selectCart } from '@redux/slices/cart.slice';
 
 type Props = {
     onClick: () => unknown,
@@ -20,72 +24,80 @@ export function ActionIcon({
   const [css, theme] = useStyletron();
   const router = useRouter();
   const isActive = router.pathname.includes(title);
+  const { cartQuantity } = useAppSelector(selectCart);
 
   return (
-    <Block
-      onClick={onClick}
-      marginLeft={marginLeft}
-      marginRight={marginRight}
-      className={css({
-        cursor: 'pointer',
-        position: 'relative',
-        height: '40px',
-        width: '40px',
-        display: 'flex',
-        zIndex: '2',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: '50%',
-        backgroundColor: isActive ? 'rgba(255,161,0,0.18)' : 'transparent',
-        transitionProperty: 'all',
-        transitionDuration: theme.animation.timing900,
-        ':hover': {
-          backgroundColor: 'rgba(255,161,0,0.18)',
-        },
-      })}
-    >
-      <Block className={css({
-        opacity: '1',
-        transitionProperty: 'all',
-        transitionDuration: theme.animation.timing700,
-        ':hover': {
-          opacity: '0',
-        },
-      })}
+    <Block display="flex" alignItems="center" justifyContent="space-between">
+      <Block
+        onClick={onClick}
+        marginLeft={marginLeft}
+        marginRight={marginRight}
+        className={css({
+          cursor: 'pointer',
+          position: 'relative',
+          height: '40px',
+          width: '40px',
+          display: 'flex',
+          zIndex: '2',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: '50%',
+          backgroundColor: isActive ? 'rgba(255,161,0,0.18)' : 'transparent',
+          transitionProperty: 'all',
+          transitionDuration: theme.animation.timing900,
+          ':hover': {
+            backgroundColor: 'rgba(255,161,0,0.18)',
+          },
+        })}
       >
-        <Image
-          src={`/${icon}`}
-          alt="bag-icon"
-          width="20"
-          height="20"
-        />
-      </Block>
-      <Block className={css({
-        position: 'absolute',
-        top: '0',
-        right: '0',
-        bottom: '0',
-        left: '0',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        objectFit: 'contain',
-        opacity: isActive ? '1' : '0',
-        transitionProperty: 'all',
-        transitionDuration: theme.animation.timing700,
-        ':hover': {
+        <Block className={css({
           opacity: '1',
-        },
-      })}
-      >
-        <Image
-          src={`/${filledIcon}`}
-          alt="bag-icon"
-          width="20"
-          height="20"
-          className={css({ padding: '10px' })}
-        />
+          transitionProperty: 'all',
+          transitionDuration: theme.animation.timing700,
+          ':hover': {
+            opacity: '0',
+          },
+        })}
+        >
+          <Image
+            src={`/${icon}`}
+            alt={title}
+            width="20"
+            height="20"
+          />
+        </Block>
+        <Block className={css({
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          bottom: '0',
+          left: '0',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          objectFit: 'contain',
+          opacity: isActive ? '1' : '0',
+          transitionProperty: 'all',
+          transitionDuration: theme.animation.timing700,
+          ':hover': {
+            opacity: '1',
+          },
+        })}
+        >
+          <Image
+            src={`/${filledIcon}`}
+            alt={title}
+            width="20"
+            height="20"
+            className={css({ padding: '10px' })}
+          />
+        </Block>
       </Block>
+      {title === 'cart' && cartQuantity > 0 ? (
+        <ParagraphXSmall className={css({ letterSpacing: '1px', marginLeft: '10px', zIndex: '19' })}>
+          {cartQuantity}
+        </ParagraphXSmall>
+      ) : null}
     </Block>
   );
 }

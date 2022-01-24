@@ -38,6 +38,7 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "react/forbid-prop-types": "off",
     "react/no-unstable-nested-components": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "no-param-reassign": "off"
   }
 }

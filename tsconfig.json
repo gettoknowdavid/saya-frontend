@@ -46,9 +46,6 @@
       "@redux/*": [
         "redux/*"
       ],
-      "@types/*": [
-        "types/*"
-      ],
       "@utils/*": [
         "utils/*"
       ]

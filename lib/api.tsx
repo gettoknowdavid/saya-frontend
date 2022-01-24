@@ -1,16 +1,15 @@
-import { VariableValue } from '@apollo/client/utilities';
 import { initializeApollo } from '@lib/apollo';
-import { DocumentNode } from '@apollo/client';
+import { DocumentNode, OperationVariables } from '@apollo/client';
 
 type QueryProps = {
     query: DocumentNode,
-    variables?: VariableValue,
+    variables?: OperationVariables,
     token?: string,
 };
 
 type MutationProps = {
     mutation: DocumentNode,
-    variables?: VariableValue,
+    variables?,
     token?: string,
 };
 

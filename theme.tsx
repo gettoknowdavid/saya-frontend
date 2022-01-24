@@ -3,7 +3,11 @@ import { lightThemePrimitives, LightTheme, createLightTheme } from 'baseui';
 const PRIMARY = '#FFFFFF';
 
 const THEME = createLightTheme(
-  { ...lightThemePrimitives },
+  {
+    ...lightThemePrimitives,
+    mono300: '#efefef',
+    primaryFontFamily: 'Poppins',
+  },
   {
     primaryFontFamily: 'Poppins',
     colors: {
