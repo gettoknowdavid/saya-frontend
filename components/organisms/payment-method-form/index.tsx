@@ -1,31 +1,28 @@
 import React from 'react';
-import { ParagraphLarge, ParagraphSmall, ParagraphXSmall } from 'baseui/typography';
+import { ParagraphLarge, ParagraphSmall } from 'baseui/typography';
 import { Block } from 'baseui/block';
-import { Select, Value } from 'baseui/select';
+import { Select } from 'baseui/select';
 import { PaymentMethod } from '@enums/payment-method';
 import { CartFormSelectMethodOverrides } from '@organisms/cart-form/cart-form.styles';
 import { HorizontalSpacer, VerticalSpacer } from '@atoms/spacer';
 import { useStyletron } from 'baseui';
-import { COUNTRIES } from 'baseui/phone-input';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { FormInput } from '@atoms/form-input';
 import { PaymentCard, valid } from 'baseui/payment-card';
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
 import { MaskedFormInput } from '@atoms/masked-form-input';
-import { FormControl } from '@atoms/form-control';
 import { currency } from '@utils/currency-formatter';
 import { selectCart } from '@redux/slices/cart.slice';
 import { Button } from 'baseui/button';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { selectCheckout, setCheckoutStep, setPaymentMethod } from '@redux/slices/checkout.slice';
 import { CheckoutSteps } from '@enums/checkout-steps';
 import { CartProductInterface } from '../../../types/cart-product.interface';
 
 export function PaymentMethodForm() {
   const [css, theme] = useStyletron();
-  const [value, setValue] = React.useState<Value>([]);
-  const [text, setText] = React.useState('');
+  // const [value, setValue] = React.useState<Value>([]);
+  // const [text, setText] = React.useState('');
   const [cardValue, setCardValue] = React.useState('');
   const [expiration, setExpiration] = React.useState('');
   const [code, setCode] = React.useState('');
@@ -36,12 +33,13 @@ export function PaymentMethodForm() {
     codeLength = card.code.size;
   }
 
-  const [country, setCountry] = React.useState(COUNTRIES.US);
+  // const [country, setCountry] = React.useState(COUNTRIES.US);
   const dispatch = useAppDispatch();
   const { items, cartQuantity } = useAppSelector(selectCart);
   const { paymentMethod } = useAppSelector(selectCheckout);
 
-  const subtotal = items.map((item: CartProductInterface) => item.attributes.price * item.quantity).reduce((a, b) => a + b, 0.0);
+  const subtotal = items.map((item: CartProductInterface) => item.attributes.price * item.quantity)
+    .reduce((a, b) => a + b, 0.0);
   const shipping = cartQuantity * 2500;
 
   return (
@@ -61,7 +59,7 @@ export function PaymentMethodForm() {
             onClick={() => dispatch(setCheckoutStep(CheckoutSteps.Contact_Information))}
             overrides={{
               BaseButton: {
-                style: ({ $theme }) => ({
+                style: () => ({
                   paddingTop: '6px',
                   paddingRight: '6px',
                   paddingBottom: '6px',

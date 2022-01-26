@@ -31,6 +31,7 @@ export default function SayaApp({ Component, pageProps }: AppProps) {
     const handleStart = (url) => {
       // eslint-disable-next-line no-unused-expressions
       if (!router.pathname.includes('account')) {
+        // eslint-disable-next-line no-unused-expressions
         url !== router.pathname ? setLoading(true) : setLoading(false);
       }
     };

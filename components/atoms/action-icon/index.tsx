@@ -4,8 +4,7 @@ import { useStyletron } from 'baseui';
 import { Block, Responsive, Scale } from 'baseui/block';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { HorizontalSpacer } from '@atoms/spacer';
-import { ParagraphSmall, ParagraphXSmall } from 'baseui/typography';
+import { ParagraphXSmall } from 'baseui/typography';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { selectCart } from '@redux/slices/cart.slice';
 

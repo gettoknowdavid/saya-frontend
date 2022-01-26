@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { ParagraphLarge } from 'baseui/typography';
 import { Block } from 'baseui/block';
@@ -6,7 +7,6 @@ import { CartFormPhoneInputOverrides } from '@organisms/cart-form/cart-form.styl
 import { HorizontalSpacer, VerticalSpacer } from '@atoms/spacer';
 import { COUNTRIES, PhoneInput } from 'baseui/phone-input';
 import { useStyletron } from 'baseui';
-import { Value } from 'baseui/select';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { Button } from 'baseui/button';
 import { BounceLoader } from 'react-spinners';
@@ -17,7 +17,7 @@ import THEME from '../../../theme';
 
 export function CartContactForm() {
   const [css, theme] = useStyletron();
-  const [value, setValue] = React.useState<Value>([]);
+  // const [value, setValue] = React.useState<Value>([]);
   const [text, setText] = React.useState('');
   const [country, setCountry] = React.useState(COUNTRIES.US);
   const dispatch = useAppDispatch();

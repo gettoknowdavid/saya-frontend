@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Credentials from 'next-auth/providers/credentials';

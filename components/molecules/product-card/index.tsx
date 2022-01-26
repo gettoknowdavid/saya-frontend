@@ -9,7 +9,6 @@ import { Card } from 'baseui/card';
 import { useStyletron } from 'baseui';
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { addToCart } from '@redux/slices/cart.slice';
-import { useDispatch } from 'react-redux';
 import { ProductInterface } from '../../../types';
 
 type Props = { product: ProductInterface }

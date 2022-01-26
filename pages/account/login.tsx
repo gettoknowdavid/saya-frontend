@@ -23,6 +23,7 @@ const seo = {
   metaDescription: 'Login to Your Saya Account',
 } as SeoInterface;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Login({ csrfToken }: Props) {
   const [css, theme] = useStyletron();
   const router = useRouter();
@@ -62,7 +63,6 @@ function Login({ csrfToken }: Props) {
     setLoading(true);
     if (email && password) {
       signIn('credentials', { email, password, redirect: false }).then((res) => {
-        console.log(res);
         if (!res.error) {
           router.push(callbackUrl);
         } else {

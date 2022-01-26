@@ -91,7 +91,7 @@ export function QuantityCounter({
         <input
           value={quantity}
           disabled={!quantity}
-          onChange={(e) => { console.log(e.currentTarget.value); }}
+          onChange={() => null}
           className={css({
             fontSize: theme.typography.ParagraphXSmall.fontSize,
             width: inputWidth,
