@@ -7,7 +7,6 @@ import { NavList } from '@molecules/nav-list';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { selectGlobal, toggleDrawer } from '@redux/slices/global.slice';
-import { signIn, useSession } from 'next-auth/react';
 
 export function Header() {
   const [css, theme] = useStyletron();
@@ -15,8 +14,8 @@ export function Header() {
   const push = (href: string) => router.push(href);
   const dispatch = useAppDispatch();
   const { drawerIsOpen } = useAppSelector(selectGlobal);
-  const { status } = useSession();
-  const isAuth = status === 'unauthenticated';
+  // const { status } = useSession();
+  // const isAuth = status === 'unauthenticated';
 
   return (
     <Block
@@ -64,14 +63,14 @@ export function Header() {
             icon="cart.png"
             filledIcon="cart-filled.png"
           />
-          <ActionIcon
+          {/* <ActionIcon
             title="account"
             onClick={() => (!isAuth
               ? push('/account')
               : signIn(null, { callbackUrl: 'http://localhost:3000/account' }))}
             icon="user.png"
             filledIcon="user-filled.png"
-          />
+          /> */}
           <Block display={['flex', 'flex', 'flex', 'none']}>
             <ActionIcon
               title="drawer"
