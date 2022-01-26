@@ -20,8 +20,6 @@ export function NavList({ axis }: Props) {
     >
       <NavItem axis={axis} href="/" title="Home" />
       <NavItem axis={axis} href="/shop" title="Shop" />
-      <NavItem axis={axis} href="/about" title="About" />
-      <NavItem axis={axis} href="/contact" title="Contact" />
     </ul>
   );
 }
