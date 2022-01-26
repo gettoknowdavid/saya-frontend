@@ -61,7 +61,7 @@ const HeaderImageComponent = ({ product }: Props) => {
           })}
           >
             <Image
-              src={`${STRAPI_URL}${product.attributes.featuredImage.data.attributes.url}`}
+              src={product.attributes.featuredImage.data.attributes.url}
               alt={product.attributes.name}
               height="512px"
               width="512px"
@@ -88,7 +88,7 @@ const HeaderImageComponent = ({ product }: Props) => {
             })}
             >
               <Image
-                src={`${STRAPI_URL}${product.attributes.gallery.data[0]?.attributes.url}`}
+                src={product.attributes.gallery.data[0]?.attributes.url}
                 alt={product.attributes.gallery.data[0]?.attributes.name}
                 height="512px"
                 width="512px"
@@ -142,11 +142,10 @@ const TitleComponent = ({ product }: Props) => {
 
 export function ProductCard({ product }: Props) {
   const [css, theme] = useStyletron();
-  const STRAPI_URL = `${process.env.NEXT_PUBLIC_API}`;
 
   return (
     <Card
-      headerImage={`${STRAPI_URL}${product.attributes.featuredImage.data.attributes.url}`}
+      headerImage={product.attributes.featuredImage.data.attributes.url}
       title={product.attributes.name}
       overrides={{
         Root: {

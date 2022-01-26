@@ -22,7 +22,6 @@ type Props = { product: ProductInterface }
 export function ProductContent({ product }: Props) {
   const [css, theme] = useStyletron();
   const dispatch = useAppDispatch();
-  const STRAPI_URL = `${process.env.NEXT_PUBLIC_API}`;
 
   const { items } = useAppSelector(selectCart);
   const { currentImage } = useAppSelector(selectProductImage);
@@ -30,8 +29,8 @@ export function ProductContent({ product }: Props) {
   const quantity = item?.quantity;
 
   React.useEffect(() => {
-    dispatch(changeImage(`${STRAPI_URL}${product.attributes.featuredImage.data.attributes.url}`));
-  }, [STRAPI_URL, dispatch, product.attributes.featuredImage.data.attributes.url]);
+    dispatch(changeImage(`${product.attributes.featuredImage.data.attributes.url}`));
+  }, [dispatch, product.attributes.featuredImage.data.attributes.url]);
 
   return (
     <Container paddingTop={['60px', '60px', '70px', '80px']}>
@@ -127,9 +126,9 @@ export function ProductContent({ product }: Props) {
                   <FlexGridItem key={image.id} display="block" backgroundColor="mono400">
                     <Block
                       className={css({ cursor: 'pointer' })}
-                      onClick={() => dispatch(changeImage(`${STRAPI_URL}${image.attributes.url}`))}
+                      onClick={() => dispatch(changeImage(`${image.attributes.url}`))}
                     >
-                      <StyledProductImage src={`${STRAPI_URL}${image.attributes.url}`} alt={image.attributes.name} />
+                      <StyledProductImage src={`${image.attributes.url}`} alt={image.attributes.name} />
                     </Block>
                   </FlexGridItem>
                 ))}
