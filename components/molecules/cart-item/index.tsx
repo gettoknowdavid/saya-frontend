@@ -12,7 +12,6 @@ import { useAppDispatch } from '@hooks/redux-hooks';
 import { decreaseItemQuantity, increaseItemQuantity, removeFromCart } from '@redux/slices/cart.slice';
 import { StyledCartItemImage } from '@molecules/cart-item/cart-item.styles';
 import Link from 'next/link';
-import { STRAPI_URL } from '../../../constants/strapi-url';
 import { CartProductInterface } from '../../../types/cart-product.interface';
 
 type Props = { item: CartProductInterface }
@@ -40,7 +39,7 @@ export function CartItem({ item }: Props) {
       <FlexGridItem maxWidth={['100%', '100%', '100%', '64%']}>
         <Block display="flex" alignItems="center">
           <StyledCartItemImage
-            src={`${STRAPI_URL}${item.attributes.featuredImage.data.attributes.url}`}
+            src={item.attributes.featuredImage.data.attributes.url}
             alt={item.attributes.name}
           />
           <HorizontalSpacer />
