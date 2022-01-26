@@ -55,7 +55,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "unplublished/about.tsx.old"  ],
   "exclude": [
     "node_modules"
   ]
