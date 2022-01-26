@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { fetchAPI } from '@lib/api';
 import { HomeQuery } from '@graphql/queries/home.query';
 import Layout from '../layout';
@@ -22,7 +22,7 @@ export default function Home({ home }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const { data } = await fetchAPI({ query: HomeQuery });
   return { props: { home: data.home.data.attributes } };
 };
